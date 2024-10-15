@@ -13,6 +13,7 @@
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+smeApp::Application application;				// 응용 프로그램
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -87,7 +88,7 @@ int APIENTRY wWinMain(
 		else
 		{
 			// 메세지가 없을 경우, 이곳에서 처리 (게임로직 등...)
-			
+			application.Run();
 		}
 	}
 
@@ -144,6 +145,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	{
 		return FALSE;
 	}
+
+	application.Initialize(hWnd);
 
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
