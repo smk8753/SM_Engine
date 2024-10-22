@@ -1,4 +1,5 @@
 #include "smeApplication.h"
+#include "smeInput.h"
 
 namespace smeApp
 {
@@ -18,7 +19,10 @@ namespace smeApp
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
+		
 		mPlayer.SetPosition(.0f, .0f);
+
+		Input::Initailize();
 	}
 
 	void Application::Run()
@@ -30,6 +34,8 @@ namespace smeApp
 
 	void Application::Update()
 	{
+		Input::Update();
+
 		mPlayer.Update();
 	}
 

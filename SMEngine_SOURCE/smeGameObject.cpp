@@ -1,4 +1,5 @@
 #include "smeGameObject.h"
+#include "smeInput.h"
 
 namespace smeApp
 {
@@ -14,22 +15,22 @@ namespace smeApp
 
 	void GameObject::Update()
 	{
-		if (GetAsyncKeyState('A') & 0x8000)
+		if (Input::GetKey(eKeyCode::A))
 		{
 			pos_x -= 0.01f;
 		}
 
-		if (GetAsyncKeyState('D') & 0x8000)
+		if (Input::GetKey(eKeyCode::D))
 		{
 			pos_x += 0.01f;
 		}
 
-		if (GetAsyncKeyState('W') & 0x8000)
+		if (Input::GetKey(eKeyCode::W))
 		{
 			pos_y -= 0.01f;
 		}
 
-		if (GetAsyncKeyState('S') & 0x8000)
+		if (Input::GetKey(eKeyCode::S))
 		{
 			pos_y += 0.01f;
 		}
